@@ -1,0 +1,265 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/b355610980.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                font-family: 'Source Sans Pro', sans-serif;
+            }
+
+            html{
+                font-size:10px;
+            }
+
+            .nav-container{
+                display:flex;
+                flex-direction: row;
+                flex-wrap:wrap;
+                justify-content: space-between;
+                align-items:center;
+                height:60px;
+                background-color: white;
+                position:fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+
+            .nav-container .nav-logo{
+                margin-left:40px;
+            }
+
+            .nav-container .nav-logo a{
+                color:black;
+                text-decoration-line : none;
+                font-size:2.5rem;
+                animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            }
+
+            .nav-container .nav-icon{
+                margin-right:20px;
+                animation: rotate-center 0.6s ease-in-out both;
+            }
+
+            .nav-container .nav-menu{
+                display:flex;
+                flex-direction: row;
+            }
+
+            .nav-container .nav-menu div{
+                margin-left:20px;
+            }
+
+            .nav-container .nav-menu div a{
+                color:black;
+                text-decoration-line : none;
+                font-size:2rem;
+                animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            }
+
+            .nav-container .nav-menu div a:hover{
+                background-color: rgb(204, 204, 204);
+                border-radius: 5px;
+            }
+
+            .nav-container .nav-icon a{
+                color:black;
+                text-decoration-line : none;
+                font-size:2rem;
+            }
+
+            .nav-container .nav-bars{
+                display: none;
+                font-size:2rem;
+            }
+
+            .banner-container video{
+                max-width:100%;
+            }
+
+            .banner-text{
+                position:absolute;
+                top:300px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                animation: slide 1s ease-out;
+            }
+
+            .banner-text h3{
+                font-size:2.2vw;
+                color:rgb(0, 0, 0);
+            }
+
+            @keyframes tracking-in-expand-fwd {
+                0% {
+                    letter-spacing: -0.5em;
+                    transform: translateZ(-700px);
+                    opacity: 0;
+                }
+                40% {
+                    opacity: 0.6;
+                }
+                100% {
+                    transform: translateZ(0);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes rotate-center {
+                0% {
+                    transform: rotate(0);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes slide{
+                0%{
+                    left:-100px;
+                    opacity: 0;
+                }
+                100%{
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes disappear{
+                100%{
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                }0%{
+                    left:-100px;
+                    opacity: 0;
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                
+                .nav-container{
+                    width:100%;
+                    flex-direction: column;
+                }
+
+                .nav-container .nav-logo{
+                    padding-top:15px;
+                    margin-left:0px;
+                }
+
+                .nav-container .nav-menu{
+                    flex-direction: column;
+                    display:none;
+                }
+
+                .nav-container .nav-icon{
+                    margin-top:5px;
+                    margin-right:0px;
+                    margin-bottom:8px;
+                    display:none;
+                }
+
+                .nav-container .nav-menu div{
+                    margin-top:10px;
+                    margin-left:0px;
+                }
+
+                .nav-container .nav-bars{
+                    animation: rotate-center 0.6s ease-in-out both;
+                    position:absolute;
+                    display:inline;
+                    top:20px;
+                    right:15px;
+                }
+
+                .banner-text h3{
+                    font-size:4vw;
+                    color:rgb(0, 0, 0);
+                }
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <nav class="nav-container">
+            <section class="nav-logo">
+                <div><a href="#">하이록코리아</a></div>
+            </section>
+            <section class="nav-menu">
+                <div><a href="#">회사소개</a></div>
+                <div><a href="#">사업구성</a></div>
+                <div><a href="#">견적문의</a></div>
+            </section>
+            <section class="nav-icon">
+                <a href="#"><i class="fab fa-instagram"></i></i></a>
+            </section>
+            <section class="nav-bars">
+                <i class="fas fa-bars"></i>
+            </section>
+        </nav>
+
+        <div class="banner-container">
+            <div class="banner-text">
+                <h3>세계적인 기업의</h3>
+                <h3>시선은 늘</h3>
+                <h3>미래를 향합니다</h3>
+            </div>
+        </div>
+    </body>
+    <script>
+
+        const nav = $('.nav-container');
+        const menu = $('.nav-menu');
+        const icon = $('.nav-icon');
+        const bar = $('.nav-bars');
+
+        $(window).resize(function () {
+
+            var windowWidth = window.outerWidth;
+
+            if(windowWidth>768){
+                nav.css('height','60px');
+                menu.css('display', 'flex');
+                bar.css('display','none');
+                icon.css('display','inline');
+            }else {
+
+                menu.css('display', 'none');
+                bar.css('display','inline');
+                icon.css('display','none');
+
+            }
+
+        })
+
+        $(bar).click(function () {
+
+            if ($(menu).css("display") == "none") {
+                nav.css('height','210px');
+                menu.css('display', 'flex');
+                icon.css('display','inline');
+
+            } else {
+                nav.css('height','60px');
+                menu.css('display', 'none');
+                icon.css('display', 'none');
+            }
+
+        });
+
+    </script>
+</html>
